@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import "./Carts.css";
+import "./Cart.css";
+import imgSrc from "./images/feem_d356085c4ebfd_IMG-20240209-WA0005.jpg"
+
+// Rest of the code remains unchanged
 
 function Carts() {
     const [cart, setCart] = useState(0);
@@ -9,7 +12,7 @@ function Carts() {
     }
 
     const decrement = () => {
-        setCart(cart < 1 ? cart - 1 : cart);
+        setCart(cart > 0 ? cart - 1 : cart); // Prevent cart from going below 0
     }
 
     const SubmitHandler = (e) => {
@@ -18,22 +21,22 @@ function Carts() {
     }
 
     return (
-        <div className="cart-container" onSubmit={SubmitHandler}>
+        <form className="cart-container" onSubmit={SubmitHandler}>
             <div className="img-box">
-                <img src="../images/image 32.png" alt="cart-img" />
+                <img src={imgSrc} alt="cart-img" />
             </div>
             <div className="cart-details">
-                <h1> Aesthetic Lamp </h1>
+                <h1> Mixed Smoothies </h1>
                 <span> $300.50 </span>
             </div>
             <div className="cart-quantity">
-                <button onClick={decrement}> - </button>
+                <button type="button" onClick={decrement}> - </button>
                 <p>{ cart }</p>
-                <button onClick={increment}> + </button>
+                <button type="button" onClick={increment}> + </button>
             </div>
-            <button type="submit"></button>
-        </div>
-    ) 
+            <button type="submit">Submit</button>
+        </form>
+    )
 }
 
 export default Carts;
