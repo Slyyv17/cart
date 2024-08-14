@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #f3f3f3;
+    --dark-color: #333;
+}
+
+.cart-container {
+    width: 100%;
+    max-width: 40em;
+    height: 30em;
+    border: 1px dashed black;
+}
